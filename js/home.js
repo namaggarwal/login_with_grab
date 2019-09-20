@@ -1,7 +1,7 @@
 let config = {}
 
 function loadConfig() {
-  fetch('/config.json').
+  fetch('/login_with_grab/config.json').
   then(res => res.json()).
   then(res => {
     config = res;
