@@ -1,0 +1,6 @@
+{
+  "clientId": "1b143a2453b84c0983545cac16e1ee79",
+  "redirectUri": "http://localhost:8090/callback.html",
+  "scope": "openid name",
+  "acrValues": "consent_ctx:country=sg"
+}
