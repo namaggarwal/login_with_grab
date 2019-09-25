@@ -27,4 +27,18 @@
   </div>
 </body>
 
+<script type="text/javascript">
+
+function initiateLogin() {
+  const query = window.location.search;
+  const redirectURL = `intent://open?screenType=PARTNERLOGIN&${query.substring(1)}#Intent;scheme=grab;package=com.grabtaxi.passenger;end`
+  window.location = redirectURL
+}
+
+
+(function() {
+  initiateLogin();
+})()
+
+</script>
 </html>
