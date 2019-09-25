@@ -31,8 +31,9 @@
 
 function initiateLogin() {
   const query = window.location.search;
-  const redirectURL = `intent://open?screenType=PARTNERLOGIN&${query.substring(1)}&auth_endpoint=https%3A%2F%2Fapi%2Estg%2Dmyteksi%2Ecom%2Fgrabid%2Fv1%2Foauth2%2Fauthorize#Intent;scheme=grab;package=com.grabtaxi.passenger;end`
+  const redirectURL = `intent://open?screenType=PARTNERLOGIN&${query.substring(1)}&auth_endpoint=https%3A%2F%2Fapi%2Estg%2Dmyteksi%2Ecom%2Fgrabid%2Fv1%2Foauth2%2Fauthorize#Intent;scheme=grab;package=com.grabtaxi.passenger;S.browser_fallback_url=https%3A%2F%2Fwww%2Egoogle%2Ecom;end`
   window.location = redirectURL
+  return false
 }
 
 
