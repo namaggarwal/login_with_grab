@@ -23,7 +23,9 @@
 
 <body>
   <div class="cont">
-    Signing you in with Grab App
+    <div id="btnLogin">
+      Click to continue logging in with Grab
+    </div>
   </div>
 </body>
 
@@ -31,14 +33,17 @@
 
 function initiateLogin() {
   const query = window.location.search;
-  const redirectURL = `https://namaggarwal.github.io/login_with_grab/pax_app_flow2.html${query}&auth_endpoint=https%3A%2F%2Fapi%2Estg%2Dmyteksi%2Ecom%2Fgrabid%2Fv1%2Foauth2%2Fauthorize`;
+  const redirectURL = `intent://open?screenType=PARTNERLOGIN&${query.substring(1)}#Intent;scheme=grab;package=com.grabtaxi.passenger;S.browser_fallback_url=https%3A%2F%2Fwww%2Egoogle%2Ecom;end`
   window.location = redirectURL
   return false
 }
 
+function attachEvents() {
+  document.getElementById("btnLogin").onclick = initiateLogin;
+}
 
 (function() {
-  initiateLogin();
+  attachEvents();
 })()
 
 </script>
