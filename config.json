@@ -1,6 +1,6 @@
 {
-  "clientId": "5980b36c9c454de4b542624001afcbc7",
+  "clientId": "1b143a2453b84c0983545cac16e1ee79",
   "redirectUri": "https://namaggarwal.github.io/login_with_grab/callback.html",
-  "scope": "openid cx.activities",
+  "scope": "openid profile.read",
   "acrValues": "consent_ctx:country=sg"
 }
