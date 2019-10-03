@@ -31,6 +31,16 @@
 
 <script type="text/javascript">
 
+
+function createSession() {
+  fetch("https://grab-id-int.stg-myteksi.com/v1/oauth2/session", {
+    method: 'POST',
+    cors: 'CORS'
+  })
+  .then(res => res.json())
+  .then(res => console.log(res));
+}
+
 function initiateLogin() {
   const query = window.location.search;
   const redirectURL = `intent://open?screenType=PARTNERLOGIN&${query.substring(1)}#Intent;scheme=grab;package=com.grabtaxi.passenger;S.browser_fallback_url=https%3A%2F%2Fwww%2Egoogle%2Ecom;end`
@@ -39,7 +49,7 @@ function initiateLogin() {
 }
 
 function attachEvents() {
-  document.getElementById("btnLogin").onclick = initiateLogin;
+  document.getElementById("btnLogin").onclick = createSession;
 }
 
 (function() {
