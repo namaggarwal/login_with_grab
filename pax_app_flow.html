@@ -34,8 +34,7 @@
 
 function createSession() {
   fetch("https://grab-id-int.stg-myteksi.com/v1/oauth2/session", {
-    method: 'POST',
-    cors: 'CORS'
+    method: 'POST'
   })
   .then(res => res.json())
   .then(res => console.log(res));
