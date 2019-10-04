@@ -38,11 +38,8 @@ function createSession() {
   .then(res => res.json())
   .then(res => {
     session = res;
-    initiateLogin(res.session_id);
-    return res.session_id;
-  })
-  .then((sessionID) => {
     checkSession(sessionID);
+    initiateLogin(res.session_id);
   });
 }
 
