@@ -31,8 +31,6 @@
 
 <script type="text/javascript">
 
-var session;
-
 function createSession() {
   fetch("https://grab-id-int.stg-myteksi.com/v1/oauth2/session", {
     method: 'POST'
@@ -40,13 +38,22 @@ function createSession() {
   .then(res => res.json())
   .then(res => {
     session = res;
-    initiateLogin();
+    initiateLogin(res.session_id);
+    return res.session_id;
+  })
+  .then((sessionID) => {
+    console.log("redirected");
   });
 }
 
-function initiateLogin() {
+function checkSession(sessionID) {
+
+}
+
+function initiateLogin(sessionID) {
   const query = window.location.search;
-  const redirectURL = `intent://open?screenType=PARTNERLOGIN&${query.substring(1)}&auth_endpoint=https%3A%2F%2Fapi%2Estg%2Dmyteksi%2Ecom%2Fgrabid%2Fv1%2Foauth2%2Fauthorize#Intent;scheme=grab;package=com.grabtaxi.passenger;S.browser_fallback_url=https%3A%2F%2Fwww%2Egoogle%2Ecom;end`
+  const redirectURL = `intent://open?screenType=PARTNERLOGIN&${query.substring(1)}&session_id=${sessionID}&auth_endpoint=https%3A%2F%2Fapi%2Estg%2Dmyteksi%2Ecom%2Fgrabid%2Fv1%2Foauth2%2Fauthorize#Intent;scheme=grab;package=com.grabtaxi.passenger;S.browser_fallback_url=https%3A%2F%2Fwww%2Egoogle%2Ecom;end`
+  console.log("Redirecting to",redirectURL);
   window.location = redirectURL
   return false
 }
