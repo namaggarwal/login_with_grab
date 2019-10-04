@@ -50,6 +50,7 @@ function loop(){
 }
 function checkSession(sessionID) {
   fetch(`https://grab-id-int.stg-myteksi.com/v1/oauth2/session/${sessionID}`)
+  .then(res => res.json())
   .then(res => {
     if(!res.is_valid){
       loop();
