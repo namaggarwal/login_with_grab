@@ -42,7 +42,7 @@ function createSession() {
     return res.session_id;
   })
   .then((sessionID) => {
-    console.log("redirected");
+    checkSession(sessionID);
   });
 }
 
