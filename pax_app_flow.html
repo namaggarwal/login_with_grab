@@ -47,7 +47,15 @@ function createSession() {
 }
 
 function checkSession(sessionID) {
+  fetch(`https://grab-id-int.stg-myteksi.com/v1/oauth2/session/${sessionID}`)
+  .then(res => {
+    if(!res.is_valid){
+      checkSession(res.session_id);
+      return;
+    }
 
+    console.log("Yayyy done");
+  })
 }
 
 function initiateLogin(sessionID) {
