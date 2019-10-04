@@ -30,19 +30,20 @@
 </body>
 
 <script type="text/javascript">
-
+var sessionID;
 function createSession() {
   fetch("https://grab-id-int.stg-myteksi.com/v1/oauth2/session", {
     method: 'POST'
   })
   .then(res => res.json())
   .then(res => {
-    loop(res.session_id);
+    sessionID = res.session_id;
+    loop();
     initiateLogin(res.session_id);
   });
 }
 
-function loop(sessionID){
+function loop(){
   setTimeout(function(){
     checkSession(sessionID);
   },1000);
@@ -51,7 +52,7 @@ function checkSession(sessionID) {
   fetch(`https://grab-id-int.stg-myteksi.com/v1/oauth2/session/${sessionID}`)
   .then(res => {
     if(!res.is_valid){
-      checkSession(res.session_id);
+      loop();
       return;
     }
 
