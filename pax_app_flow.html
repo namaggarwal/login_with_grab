@@ -37,12 +37,16 @@ function createSession() {
   })
   .then(res => res.json())
   .then(res => {
-    session = res;
-    checkSession(sessionID);
+    loop(res.session_id);
     initiateLogin(res.session_id);
   });
 }
 
+function loop(sessionID){
+  setTimeout(function(){
+    checkSession(sessionID);
+  },1000);
+}
 function checkSession(sessionID) {
   fetch(`https://grab-id-int.stg-myteksi.com/v1/oauth2/session/${sessionID}`)
   .then(res => {
