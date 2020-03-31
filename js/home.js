@@ -9,7 +9,8 @@ function loadConfig() {
 }
 
 function loginWithGrab() {
-  const grabIdClient = new GrabID(GrabID.getGrabUrls().STAGING, config)
+  const loginConfig = {...config, redirectUri: encodeURIComponent(config.redirectUri)}
+  const grabIdClient = new GrabID(GrabID.getGrabUrls().STAGING, loginConfig)
   grabIdClient.getOpenIdConfiguration()
   .then(() => {
     grabIdClient.makeAuthorizationRequest()
