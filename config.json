@@ -1,7 +1,6 @@
 {
-  "clientId": "22611b0d7ea441d48ca8e0181498f134",
-  "redirectUri": "https://wiki.grab.com/display/GRABPAY/TokenizationDemoOnStaging",
-  "scope": "payment.one_time_charge",
-  "acrValues": "consent_ctx:country=sg,currency=SGD",
-  "request": "eyJhbGciOiAibm9uZSJ9.eyJjbGFpbXMiOnsidHJhbnNhY3Rpb24iOnsidHhJRCI6IjEyNDM0MWEzOWRiZDRmMDBiN2M5MDBjODNhODRhNTQwIn19fQ."
+  "clientId": "1b143a2453b84c0983545cac16e1ee79",
+  "redirectUri": "https://namaggarwal.github.io/login_with_grab/callback.html",
+  "scope": "openid name",
+  "acrValues": "consent_ctx:country=sg"
 }
