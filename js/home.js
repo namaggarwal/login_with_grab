@@ -9,7 +9,7 @@ function loadConfig() {
 }
 
 function loginWithGrab() {
-  const loginConfig = {...config, redirectUri: encodeURIComponent(config.redirectUri)}
+  const loginConfig = {...config, redirectUri: encodeURIComponent(config.redirectUri), }
   const grabIdClient = new GrabID(GrabID.getGrabUrls().STAGING, loginConfig)
   grabIdClient.getOpenIdConfiguration()
   .then(() => {
